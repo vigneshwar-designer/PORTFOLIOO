@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vigneshwar portfolio</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      animation: bgColorChange 12s infinite alternate ease-in-out;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    @keyframes bgColorChange {
+     0% { background-color: #d4cbc4; }
+     20% { background-color: #d8d0c9; }
+     40% { background-color: #d3ceca; }
+     60% { background-color: #e2dcd6; }
+     80% { background-color: #f6f4f3; }
+    100% { background-color: #ffffff; }
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation */
+    nav {
+      background-color:#48182f;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    nav a {
+      cursor: pointer;
+      transition: color 0.3s ease;
+      color: #d4cbc4 ;
+    }
+    nav a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 5px #fa97fa;
+      transform: scale(1.1);
+      transition: all 0.3s ease;
+
+    }
+
+    /* Main container */
+    main {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3rem 7rem;
+      position: relative;
+      overflow: hidden;
+      gap: 2rem;
+      min-height: 80vh;
+    }
+
+    /* Left text-side */
+    .intro-text {
+      max-width: 45%;
+    }
+    .intro-text h1 {
+      font-family: 'Optima', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+      color: #57082e;
+    }
+    .intro-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      font-weight: 350;
+      max-width: 90%;
+      color: #48182f;
+    }
+
+    /* Right side: image with shapes */
+    .image-wrapper {
+      position: relative;
+      width: 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* The black circle shape */
+    .circle {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: #47132d;
+      border-radius: 50%;
+      top: 40%;
+      left: 10%;
+      z-index: 1;
+    }
+    /* The big diagonal black shape behind right */
+    .diagonal-shape {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: #47132d;
+      top: 65%;
+      right: -50px;
+      margin-bottom: 100px;
+      transform: rotate(-45deg);
+      z-index: 0;
+    }
+    /* The person's image */
+    .profile-image {
+      position: relative;
+      width: 430px;
+      height: 530px;
+      object-fit: cover;
+      overflow:hidden;
+      border-radius: 12px;
+      z-index: 2;
+      margin-left: 100px;
+      animation:fadeSlide 1.5s ease forwards;
+    }
+    .cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease;
+      z-index: 9999;
+    }
+    .text {
+      animation: fadeSlide 1.5s ease forwards;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    @keyframes fadeSlide{
+      to{
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    .profile-image:hover {
+      transform: scale(1.05);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 1080px) {
+      main {
+        padding: 3rem 3rem;
+      }
+      .intro-text h1 {
+        font-size: 2.4rem;
+      }
+      .intro-text p {
+        max-width: 100%;
+      }
+      .image-wrapper {
+        width: 50%;
+      }
+      .circle {
+        width: 150px;
+        height: 150px;
+        top: 45%;
+        left: 5%;
+      }
+      .diagonal-shape {
+        width: 200px;
+        height: 200px;
+        top: 70%;
+        right: -80px;
+      }
+      .profile-image {
+        max-width: 280px;
+        max-height: 360px;
+      }
+    }
+    @media (max-width: 720px) {
+      main {
+        flex-direction: column;
+        padding: 2rem;
+      }
+      .intro-text {
+        max-width: 100%;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+      nav {
+        gap: 2rem;
+      }
+      .image-wrapper {
+        width: 100%;
+        margin-bottom: 2rem;
+        height: 380px;
+      }
+      .circle, .diagonal-shape {
+        display: none;
+      }
+      .profile-image {
+        max-width: 60vw;
+        max-height: 55vh;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" aria-label="About section">ABOUT</a>
+    <a href="skills.html" aria-label="Skills section">SKILLS</a>
+    <a href="projects.html" aria-label="Projects section">PROJECTS</a>
+    <a href="VICKY.pdf" download="Vigneshwar_Resume.pdf">RESUME</a>
+    <a href="contact.html" aria-label="Contact section">CONTACT</a>
+  </nav>
+
+  <main>
+    <section class="intro-text" role="region" aria-labelledby="intro-heading">
+      <h1 id="intro-heading"><span class="typing"></span></h1>
+      <div class ="text">
+        <p>
+          A curious learner, designer, and aspiring freelancer. I enjoy turning ideas into visuals and technology into solutions whether it’s through creative design, coding, or building projects. Right now, I’m exploring new ways to grow in design, freelancing, and engineering while shaping my own journey.
+        </p>
+      </div>
+    </section>
+
+    <section class="image-wrapper" aria-label="Profile picture and decorative shapes">
+      <div class="circle" aria-hidden="true"></div>
+      <img 
+        src="VICKYPH.png" 
+        alt="Portrait of a young man with hand on neck wearing a white shirt and smartwatch, looking to the right" 
+        class="profile-image"
+      />
+      <div class="diagonal-shape" aria-hidden="true"></div>
+      <div id="cursor"></div>
+    </section>
+  </main>
+  <script>
+     const text = "Hi, I’m Vigneshwar";
+     let i = 0;
+    function typingEffect() {
+      if (i < text.length) {
+       document.querySelector(".typing").innerHTML += text.charAt(i);
+       i++;
+       setTimeout(typingEffect, 100);
+      }
+    }
+   window.onload = typingEffect;
+     document.addEventListener("mousemove", (e) => {
+      const cursor = document.getElementById("cursor");
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+     });
+  </script>
+</body>
+</html>

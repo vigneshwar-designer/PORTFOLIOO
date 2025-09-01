@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      animation: bgColorChange 12s infinite alternate ease-in-out;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    @keyframes bgColorChange {
+     0% { background-color: #d4cbc4; }
+     20% { background-color: #d8d0c9; }
+     40% { background-color: #d3ceca; }
+     60% { background-color: #e2dcd6; }
+     80% { background-color: #f6f4f3; }
+    100% { background-color: #ffffff; }
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #48182f; /* Blackberry */
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    nav a {
+      cursor: pointer;
+      transition: color 0.3s ease;
+      color: #d4cbc4; /* Moonstone */
+    }
+    nav a:hover {
+     color: #ffffff;
+      text-shadow: 0 0 5px #fa97fa;
+      transform: scale(1.1);
+      transition: all 0.3s ease; 
+    }
+
+    /* Main container */
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+      gap: 2rem;
+      min-height: 80vh;
+      text-align: center;
+    }
+
+    /* Section heading */
+    .contact-header h1 {
+      font-family: 'Optima', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 400;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+      color: #48182f;
+    }
+    .contact-header p {
+      font-size: 20px;
+      line-height: 1.6;
+      font-weight: 350;
+      color: #48182f;
+    }
+
+    /* Contact icons */
+    .contact-icons {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .contact-icons a {
+      font-size: 2rem;
+      color: #48182f;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .contact-icons a:hover {
+      color: #000;
+      transform: translateY(-5px);
+    }
+
+    /* Quote */
+    .quote {
+      margin-top: 3rem;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #3f1027;
+      max-width: 600px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 720px) {
+      nav {
+        gap: 1.5rem;
+      }
+      .contact-header h1 {
+        font-size: 2rem;
+      }
+      .quote {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="index.html" aria-label="About section">ABOUT</a>
+    <a href="skills.html" aria-label="Skills section">SKILLS</a>
+    <a href="projects.html" aria-label="Projects section">PROJECTS</a>
+    <a href="VICKY.pdf" download="Vigneshwar_Resume.pdf">RESUME</a>
+    <a href="contact.html" aria-label="Contact section">CONTACT</a>
+  </nav>
+
+  <!-- Main Contact Section -->
+  <main>
+    <section class="contact-header">
+      <h1>Contact Me</h1>
+      <p>Let’s connect and create something amazing together.</p>
+    </section>
+
+    <div class="contact-icons">
+      <a href="https://www.linkedin.com/in/vigneshwar-t-719576360" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/_._vignesh_25?igsh=ajNkbm5iOGFxdm1k" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/9940238913" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="vigneshwart2512@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <div class="quote">
+      "Good design is making something intuitive and memorable. Great design is making something unforgettable."
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+   body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      animation: bgColorChange 12s infinite alternate ease-in-out;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    @keyframes bgColorChange {
+     0% { background-color: #d4cbc4; }
+     20% { background-color: #d8d0c9; }
+     40% { background-color: #d3ceca; }
+     60% { background-color: #e2dcd6; }
+     80% { background-color: #f6f4f3; }
+    100% { background-color: #ffffff; }
+    } 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #48182f;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    nav a {
+      cursor: pointer;
+      transition: color 0.3s ease;
+      color: #d4cbc4;
+    }
+    nav a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 5px #fa97fa;
+      transform: scale(1.1);
+      transition: all 0.3s ease;
+    }
+
+    /* Main container */
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 8rem;
+      gap: 3rem;
+      min-height: 80vh;
+    }
+
+    /* Section heading */
+    .projects-header {
+      text-align: center;
+      max-width: 700px;
+    }
+    .projects-header h1 {
+      font-family: 'Optima', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 400;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+      color: #48182f;
+    }
+    .projects-header p {
+      font-size: 21px;
+      line-height: 1.6;
+      font-weight: 350;
+      color: #48182f;
+    }
+
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 1000px;
+    }
+    .project-card {
+      background: #e9e7e9;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 0.3px solid #3f1c2f;
+      box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15),
+                  0 0 10px rgba(250, 151, 250, 0.3),
+                  0 0 5px rgba(250, 151, 250, 0.5);
+    }
+    .project-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      color: #48182f;
+    }
+    .project-card p {
+      font-size: 1rem;
+      color: #3f1027;
+      line-height: 1.5;
+    }
+
+    /* Modal styles */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5); /* lighter black */
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #fff;
+      color: #000;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 700px;
+      width: 90%;
+      text-align: left;
+      animation: popup 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .modal-content img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    .modal-content h2 {
+      margin-bottom: 1rem;
+      color: #48182f;
+    }
+    .modal-content p {
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .close-btn {
+      background: #ef4444;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+    .close-btn:hover {
+      background: #dc2626;
+    }
+
+    @keyframes popup {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">ABOUT</a>
+    <a href="skills.html">SKILLS</a>
+    <a href="projects.html">PROJECTS</a>
+    <a href="VICKY.pdf" download="Vigneshwar_Resume.pdf">RESUME</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+
+  <main>
+    <section class="projects-header">
+      <h1>My Projects</h1>
+      <p>
+        A selection of projects that highlight my skills in UX design, planning, and development.
+      </p>
+    </section>
+
+    <section class="projects-grid">
+      <div class="project-card" onclick="openModal('Tourister – Travel Guide App (UX + Feature Planning)', 
+        'Designed and planned features for Tourister, a smart travel guide app that simplifies trip planning. Developed user flow, organized destination search, integrated historical and seasonal insights, and included guide contact tools. Focused on creating a user-friendly experience that empowers travelers with all-in-one destination info.',
+        '.jpg')">
+        <h3>Tourister – Travel Guide App (UX + Feature Planning)</h3>
+        <p>Click to view more...</p>
+      </div>
+
+      <div class="project-card" onclick="openModal('TrackUp – Smart Educational Roadmap', 
+        'TrackUp is a modern, AI-powered platform that helps students organize their academic journey and shape their career path. With a clean and futuristic design, TrackUp allows users to register, manage their academic details, and access personalized study and career roadmaps based on their branch or department. It suggests the right skills, courses, and technologies to focus on—making learning structured and goal-oriented.',
+        'trackup.jpg')">
+        <h3>TrackUp – Smart Educational Roadmap</h3>
+        <p>Click to view more...</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <div id="modalImage" >
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("projectModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalImage = document.getElementById("modalImage");
+
+    function openModal(title, description, image) {
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+      modalImage.src = image;
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    // Close when clicking outside
+    window.onclick = function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    };
+  </script>
+</body>
+</html>

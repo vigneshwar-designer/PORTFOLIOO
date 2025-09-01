@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Skills</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      animation: bgColorChange 12s infinite alternate ease-in-out;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    @keyframes bgColorChange {
+     0% { background-color: #d4cbc4; }
+     20% { background-color: #d8d0c9; }
+     40% { background-color: #d3ceca; }
+     60% { background-color: #e2dcd6; }
+     80% { background-color: #f6f4f3; }
+    100% { background-color: #ffffff; }
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #48182f;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    nav a {
+      cursor: pointer;
+      transition: color 0.3s ease;
+      color: #d4cbc4;
+    }
+    nav a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 5px #fa97fa;
+      transform: scale(1.1);
+      transition: all 0.3s ease;
+    }
+
+    /* Main container */
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 8rem;
+      gap: 3rem;
+      min-height: 80vh;
+    }
+    .floating-image-container {
+      perspective: 300px;
+      display: flex;
+      transform: translateX(-500px);
+    }
+
+    .floating-image {
+      width: 100px;
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+    }
+
+    .floating-image:hover {
+      transform: translateY(10px) scale(1.05) rotateX(5deg);
+    }
+
+    /* Section heading */
+    .skills-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .skills-header h1 {
+      font-family: 'Optima', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 400;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+      color: #48182f;
+    }
+    .skills-header p {
+      font-size: 21px;
+      line-height: 1.6;
+      font-weight: 350;
+      color: #48182f;
+    }
+    .transition {
+      animation: fadeSlide 1.5s ease forwards;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    /* Skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 1000px;
+      
+    }
+    .skill-card {
+      background: #e9e7e9;
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 0.3px solid #3f1c2f;
+      border-style:groove;
+      box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      cursor:pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transform: translateY(10px);
+      animation: fadeSlide 0.5s ease forwards;
+    }
+    .skill-card:hover {
+      transform: translateY(-10px);
+      transition: all 0.2s ease;
+      box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15), 0 0 10px rgba(250, 151, 250, 0.3), 0 0 5px rgba(250, 151, 250, 0.5);
+    }
+    .skill-card h3 {
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+      color: #48182f;
+    }
+    .skill-card p {
+      font-size: 1rem;
+      color: #3f1027;
+      line-height: 1.4;
+    }
+    .modal{
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-filter: blur(5px);
+      background: rgba(0,0,0,0.6);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      width: 400px;
+      text-align: center;
+      animation: popup 0.4s ease;
+     }
+     @keyframes fadeSlide{
+      to{
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes popup {
+      from { transform: scale(0.6); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .close {
+     float: right;
+     font-size: 24px;
+     cursor: pointer;
+    }
+
+
+    /* Responsive Adjustments */
+    @media (max-width: 1080px) {
+      main {
+        padding: 3rem 3rem;
+      }
+      .skills-header h1 {
+        font-size: 2rem;
+      }
+    }
+    @media (max-width: 720px) {
+      nav {
+        gap: 2rem;
+      }
+      main {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" aria-label="About section">ABOUT</a>
+    <a href="skills.html" aria-label="Skills section">SKILLS</a>
+    <a href="projects.html" aria-label="Projects section">PROJECTS</a>
+    <a href="VICKY.pdf" download="Vigneshwar_Resume.pdf">RESUME</a>
+    <a href="contact.html" aria-label="Contact section">CONTACT</a>
+  </nav>
+
+  <main>
+    <section class="skills-header">
+      <div class="transition">
+      <h1>My Skills</h1>
+      <p>
+        Here are some of the skills I’ve developed through learning, freelancing, and personal projects.
+        I focus on blending creativity with technology to bring ideas to life.
+      </p>
+      </div>
+    </section>
+
+    <section class="skills-grid">
+      <div class="skill-card">
+        <h3>Web Design</h3>
+        <p>HTML, CSS, and responsive design for clean and functional projects.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Graphic Design</h3>
+        <p>Experienced with Photoshop and Illustrator for creative banner & poster designs.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Programming</h3>
+        <p>Basics in C and Python, with a logical approach to problem-solving.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Leadership</h3>
+        <p>Good communication and team management skills from projects & events.</p>
+      </div>
+    </section>
+    <div id="popupModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
